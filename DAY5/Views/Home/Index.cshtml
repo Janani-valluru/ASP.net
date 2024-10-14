@@ -1,0 +1,32 @@
+﻿@using DAY5.Models
+@model Person
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <div>
+        @using (Html.BeginForm("About", "Home", FormMethod.Post))
+        {
+            <p> Name: @Html.TextBoxFor(p => p.PersonName)</p>
+            <p> City: @Html.TextBoxFor(p => p.City)</p>
+            <p>
+                Will you attend: @Html.DropDownListFor(m => m.WillAttend, new SelectListItem[]
+{
+   new SelectListItem { Text = "YES", Value = Boolean.TrueString },
+   new SelectListItem { Text = "No, sorry I can't make it", Value = Boolean.FalseString }
+})
+            </p>
+            <input type="submit" value="Submit" />
+        }
+    </div>
+</body>
+</html>
